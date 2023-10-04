@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Multiple Choice</h1>
+    <form>
+        <p>1. What does HTML stand for?</p>
+        <label>
+            <input type="radio" name="q1" value="a"> a) Hyper Text Markup Language
+        </label><br>
+        <label>
+            <input type="radio" name="q1" value="b"> b) Hyper Transfer Markup Language
+        </label><br>
+        <label>
+            <input type="radio" name="q1" value="c"> c) High Text Markup Language
+        </label><br><br>
+
+        <p>2. What is the correct HTML element for creating an unordered list?</p>
+        <label>
+            <input type="radio" name="q2" value="a"> a)ol tag
+        </label><br>
+        <label>
+            <input type="radio" name="q2" value="b"> b)ul tag
+        </label><br>
+        <label>
+            <input type="radio" name="q2" value="c"> c)list tag
+        </label><br><br>
+
+        <p>3. Which HTML tag is used for creating a hyperlink?</p>
+        <label>
+            <input type="radio" name="q3" value="a"> a) link tag
+            <link>
+        </label><br>
+        <label>
+            <input type="radio" name="q3" value="b"> b) href attribute
+        </label><br>
+        <label>
+            <input type="radio" name="q3" value="c"> c) anchor tag
+        </label><br><br>
+
+        <input  onclick="Answers()" type="button" value="Submit">
+    </form>
+
+    <script>
+        function Answers() {
+            let correctAnswers = 0;
+            let wrongAnswers = 0;
+
+            const answers = {
+                q1: "a",
+                q2: "b",
+                q3: "c"
+            };
+
+            for (const question in answers) {
+                const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                if (selectedAnswer) {
+                    if (selectedAnswer.value === answers[question]) {
+                        correctAnswers++;
+                    } else {
+                        wrongAnswers++;
+                    }
+                }
+            }
+
+            alert(`Correct Answers: ${correctAnswers}\nWrong Answers: ${wrongAnswers}`);
+        }
+    </script>
+</body>
+
+</html>
